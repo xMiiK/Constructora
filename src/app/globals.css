@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 hover:brightness-90;
+  }
+
+  .btn-upload {
+    @apply border-2 border-primary bg-white text-primary px-6 py-3 rounded-lg shadow-sm transition-all duration-200 hover:bg-primary-light;
+  }
+
+  .btn-delete {
+    @apply text-red-500 hover:text-red-600 transition-colors duration-200;
+  }
+
+  .file-item {
+    @apply bg-gray-light p-4 rounded-lg flex items-center justify-between;
+  }
+
+  .progress-bar {
+    @apply bg-gray-light rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply bg-primary h-full transition-all duration-500 ease-in-out;
+  }
+} 
