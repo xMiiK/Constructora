@@ -37,56 +37,58 @@ export default function Home() {
   };
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold text-gray-dark mb-4">
-            Análisis de Archivos de Construcción
-          </h1>
-          <p className="text-gray-dark">
-            Sube tus archivos para comenzar el análisis
-          </p>
-        </div>
+    <main className="min-h-[calc(100vh-88px)] flex items-center justify-center">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="space-y-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-semibold text-gray-dark mb-4">
+              Análisis proyectos obra pública 
+            </h1>
+            <p className="text-gray-dark">
+              Sube tus archivos para comenzar el análisis
+            </p>
+          </div>
 
-        <div className="flex flex-col items-center space-y-6">
-          <label className="btn-upload cursor-pointer flex items-center space-x-2">
-            <FiUpload className="text-xl" />
-            <span>Seleccionar archivos</span>
-            <input
-              type="file"
-              multiple
-              className="hidden"
-              onChange={handleFileUpload}
-              disabled={isLoading}
-            />
-          </label>
-
-          {isLoading && <LoadingSpinner />}
-
-          {files.length > 0 && (
-            <div className="w-full space-y-4">
-              {files.map((file, index) => (
-                <div key={index} className="file-item">
-                  <span className="text-gray-dark">{file.name}</span>
-                  <button
-                    onClick={() => handleDeleteFile(index)}
-                    className="btn-delete"
-                    disabled={isLoading}
-                  >
-                    <FiTrash2 className="text-xl" />
-                  </button>
-                </div>
-              ))}
-
-              <button
-                onClick={handleAnalyze}
-                className="btn-primary w-full"
+          <div className="flex flex-col items-center space-y-6">
+            <label className="btn-upload cursor-pointer flex items-center space-x-2">
+              <FiUpload className="text-xl" />
+              <span>Seleccionar archivos</span>
+              <input
+                type="file"
+                multiple
+                className="hidden"
+                onChange={handleFileUpload}
                 disabled={isLoading}
-              >
-                Analizar Archivos
-              </button>
-            </div>
-          )}
+              />
+            </label>
+
+            {isLoading && <LoadingSpinner />}
+
+            {files.length > 0 && (
+              <div className="w-full space-y-4">
+                {files.map((file, index) => (
+                  <div key={index} className="file-item">
+                    <span className="text-gray-dark">{file.name}</span>
+                    <button
+                      onClick={() => handleDeleteFile(index)}
+                      className="btn-delete"
+                      disabled={isLoading}
+                    >
+                      <FiTrash2 className="text-xl" />
+                    </button>
+                  </div>
+                ))}
+
+                <button
+                  onClick={handleAnalyze}
+                  className="btn-primary w-full"
+                  disabled={isLoading}
+                >
+                  Analizar Archivos
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </main>

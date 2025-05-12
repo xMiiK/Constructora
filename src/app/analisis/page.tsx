@@ -38,36 +38,38 @@ export default function Analisis() {
   }, [progress, router]);
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold text-gray-dark mb-4">
-            Analizando Archivos
-          </h1>
-        </div>
-
-        <div className="space-y-6">
-          <div className="progress-bar h-4">
-            <div
-              className="progress-bar-fill"
-              style={{ width: `${progress}%` }}
-            />
+    <main className="min-h-[calc(100vh-88px)] flex items-center justify-center">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="space-y-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-semibold text-gray-dark mb-4">
+              Analizando Archivos
+            </h1>
           </div>
 
-          <div className="space-y-4">
-            {phases.map((phase, index) => (
+          <div className="space-y-6">
+            <div className="progress-bar h-4">
               <div
-                key={phase}
-                className="flex items-center space-x-4 text-gray-dark"
-              >
-                {index <= currentPhase ? (
-                  <FiCheck className="text-primary text-xl" />
-                ) : (
-                  <div className="w-5 h-5" />
-                )}
-                <span>{phase}</span>
-              </div>
-            ))}
+                className="progress-bar-fill"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+
+            <div className="space-y-4">
+              {phases.map((phase, index) => (
+                <div
+                  key={phase}
+                  className="flex items-center space-x-4 text-gray-dark"
+                >
+                  {index <= currentPhase ? (
+                    <FiCheck className="text-primary text-xl" />
+                  ) : (
+                    <div className="w-5 h-5" />
+                  )}
+                  <span>{phase}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
